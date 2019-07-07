@@ -1,6 +1,7 @@
+
 var slider = (function () {
   var counter = 1,
-    duration = 500,
+    duration = 1000,
     inProcess = false;
 
   var moveSlide = function (container, direction) {
@@ -20,7 +21,10 @@ var slider = (function () {
       'top': 0
     }, duration, function () {
       activeItem.removeClass('active')
-        .css('top', '-' + direction + '%');
+        .css('visibility', 'hidden')
+        .css('top', -1 * direction + '%')
+        .css('visibility', 'visible');
+
       $(this).addClass('active');
 
       inProcess = false;
